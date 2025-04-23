@@ -1,5 +1,6 @@
 package org.example.cadastrousers.controller;
 
+import jakarta.validation.Valid;
 import org.example.cadastrousers.model.User;
 import org.example.cadastrousers.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    List<User> create(@RequestBody User user) {
+    List<User> create(@RequestBody @Valid User user) {
         return userService.create(user);
     }
 
